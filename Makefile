@@ -1,9 +1,9 @@
 DOTFILES_DIR := $(HOME)/dotfiles
 
-.PHONY: mac brew lima git nvim rust wezterm starship yabai skhd language zsh
+.PHONY: mac wm brew lima git nvim rust wezterm starship language zsh 
 
 language: rust node deno
-mac: zsh brew git yabai skhd
+mac: zsh brew git wm starship wezterm language
 
 zsh:
 	ln -sfnv ./.zshrc ~/.zshrc
