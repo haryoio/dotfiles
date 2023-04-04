@@ -1,9 +1,12 @@
 DOTFILES_DIR := $(HOME)/dotfiles
 
-.PHONY: mac brew lima git nvim rust wezterm starship yabai skhd language
+.PHONY: mac brew lima git nvim rust wezterm starship yabai skhd language zsh
 
 language: rust node deno
-mac: brew git yabai skhd
+mac: zsh brew git yabai skhd
+
+zsh:
+	ln -sfnv ./.zshrc ~/.zshrc
 
 brew:
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -41,8 +44,10 @@ starship:
 	curl -sS https://starship.rs/install.sh | sh -s -- -y
 	ln -sfnv ./starship.toml ~/.config
 
-yabai:
-
-skhd:
-
+wm:
+	brew install koekeishiya/formulae/yabai koekeishiya/formulae/skhd
+	brew services start skhd
+	brew services start yabai
+	ln -sfnv ./.yabairc ~/.yabairc
+	ln -sfnv ./.skhdrc ~/.skhdrc
 
