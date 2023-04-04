@@ -1,26 +1,20 @@
 #!/bin/bash
-function judgement_os() {
-  if [ "$(uname)" == 'Darwin' ]; then
-    OS='Mac'
-  elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-    OS='Linux'
-  elif [ "$(expr substr $(uname -s) 1 10)" == 'MINGW32_NT' ]; then                                                                                           
-    OS='Cygwin'
-  else
-    echo "Your platform ($(uname -a)) is not supported."
-    exit 1
-  fi
-}
 
-# OSの種類を判別
+. ./utils/judgement_os
 judgement_os
 
+DOTFILES_DIR="$HOME/dotfiles"
+if [ ! -d "$DOTFILES_DIR" ]; then
+  git clone https://github.com/haryoio/dotconfig.git $(DOTFILES_DIR)
+fi
 
+cd $(DOTFILES_DIR)
 ## 必須パッケージのインストール
 if [$OS == 'Mac']; then
-  ./mac/install.sh
+  make mac
 elif [$OS == 'Linux']; then
-  ./linux/install.sh
 elif [$OS == 'MINGW32_NT']; then
-  ./windows/install.sh
 fi
+
+
+
