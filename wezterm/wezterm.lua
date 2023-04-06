@@ -1,4 +1,5 @@
 local status, wezterm = pcall(require, "wezterm")
+
 if not status then
 	return
 end
@@ -31,7 +32,7 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	    background = "#bdae93"
 		foreground = "#909090"
 	end
-
+    
 	local edge_foreground = background
 
 	-- ensure that the titles fit in the available space,
@@ -75,14 +76,14 @@ local kerning_options = {
 	"cv24", -- !=
 }
 
-local configs = {}
+
+
 
 return {
 	use_ime = true,
 	font_size = 12.0,
 	font = wezterm.font_with_fallback({
-		{ family = "Fira Code", weight = "Regular" },
-		{ family = "Firge35Nerd", weight = "Regular" },
+		{ family = "SauceCodePro Nerd Font Mono", weight = "Regular" },
 	}),
 	--合字の設定
 	--https://github.com/tonsky/FiraCode/wiki/How-to-enable-stylistic-sets
@@ -90,13 +91,13 @@ return {
 	--color_scheme = "Gruvbox Dark",
 	color_scheme = "Gruvbox dark, medium (base16)",
 	window_background_opacity = 0.9,
-  text_background_opacity = 0.9,
+    text_background_opacity = 0.9,
 
 	-- Enable the scrollbar
 	enable_scroll_bar = true,
 	use_fancy_tab_bar = true,
 
-	satus_update_intervat = 1000,
+	status_update_interval = 1000,
 
 	window_decorations = "RESIZE",
 	keys = keys,

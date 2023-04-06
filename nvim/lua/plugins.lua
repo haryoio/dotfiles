@@ -186,7 +186,8 @@ packer.startup(function(use)
     end,
   })
 
-  use "lukas-reineke/lsp-format.nvim"
+  use({ "lukas-reineke/lsp-format.nvim" })
+  use({ 'editorconfig/editorconfig-vim' })
 
   --GGGit
   use({
