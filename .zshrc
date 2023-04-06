@@ -75,4 +75,5 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # starship初期化。最後におくこと。
 eval "$(starship init zsh)"
-
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+eval "$(sheldon source)"

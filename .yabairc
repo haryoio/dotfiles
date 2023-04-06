@@ -32,4 +32,7 @@ yabai -m config window_gap                   06
 # restore position of floating windows when they are manually unfloated
 # ~/Scripts/yabai_restore.sh
 
+yabai -m rule --add app="^システム環境設定$" manage=off
+yabai -m rule --add app="^WezTerm$" manage=off
+
 echo "yabai configuration loaded.."

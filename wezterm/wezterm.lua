@@ -89,7 +89,8 @@ return {
 	harfbuzz_features = kerning_options,
 	--color_scheme = "Gruvbox Dark",
 	color_scheme = "Gruvbox dark, medium (base16)",
-	window_background_opacity = 1,
+	window_background_opacity = 0.9,
+  text_background_opacity = 0.9,
 
 	-- Enable the scrollbar
 	enable_scroll_bar = true,
@@ -101,5 +102,5 @@ return {
 	keys = keys,
 	leader = leader,
 
-	automatically_reload_configg = true,
+	automatically_reload_config = true,
 }
