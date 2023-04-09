@@ -9,71 +9,35 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
-
-# 補完で小文字でも大文字にマッチさせる
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-# ../ の後は今いるディレクトリを補完しない
-zstyle ':completion:*' ignore-parents parent pwd ..
-
-# sudo の後ろでコマンド名を補完する
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完で小文字でも大文字にマッチさせる
+zstyle ':completion:*' ignore-parents parent pwd .. # ../ の後は今いるディレクトリを補完しない
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-
-# ps コマンドのプロセス名補完
-zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
-
-########################################
-# オプション
-# 日本語ファイル名を表示可能にする
-setopt print_eight_bit
-
-
-# beep を無効にする
-setopt no_beep
-
-# フローコントロールを無効にする
-setopt no_flow_control
-
-# Ctrl+Dでzshを終了しない
-setopt ignore_eof
-
-
-# '#' 以降をコメントとして扱う
-setopt interactive_comments
-
-# ディレクトリ名だけでcdする
-setopt auto_cd
-
-# 同時に起動したzshの間でヒストリを共有する
-setopt share_history
-
-# 同じコマンドをヒストリに残さない
-setopt hist_ignore_all_dups
-
-# スペースから始まるコマンド行はヒストリに残さない
-setopt hist_ignore_space
-
-# ヒストリに保存するときに余分なスペースを削除する
-setopt hist_reduce_blanks
+                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin # sudo の後ろでコマンド名を補完する
+zstyle ':completion:*:processes' command 'ps x -o pid,s,args' # ps コマンドのプロセス名補完
+setopt print_eight_bit  # 日本語ファイル名を表示可能にする
+setopt no_beep # beep を無効にする
+setopt no_flow_control # フローコントロールを無効にする
+setopt ignore_eof  # Ctrl+Dでzshを終了しない
+setopt interactive_comments # '#' 以降をコメントとして扱う
+setopt auto_cd # ディレクトリ名だけでcdする
+setopt share_history # 同時に起動したzshの間でヒストリを共有する
+setopt hist_ignore_all_dups # 同じコマンドをヒストリに残さない
+setopt hist_ignore_space # スペースから始まるコマンド行はヒストリに残さない
+setopt hist_reduce_blanks # ヒストリに保存するときに余分なスペースを削除する
 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 alias ghcd='cd $(ghq list -p | peco)'
 alias vim=nvim
+alias vi=nvim
 alias rust=evcxr
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+alias ll="ls -alF"
+alias la="ls -a"
+alias l="ls -CF"
 
-# starship初期化。最後におくこと。
+alias rm="trash"
+
 eval "$(starship init zsh)"
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 eval "$(sheldon source)"
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
