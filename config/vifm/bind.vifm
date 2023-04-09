@@ -1,0 +1,8 @@
+" ディレクトリ作成
+nnoremap K :mkdir<space>
+
+" カレントファイルを関連付けられたデフォルトのアプリケーションで開く
+nnoremap X :!open %f<cr>
+
+" 反対側のペインをカレントペインと動悸する"
+nnoremap , :sync!<cr>

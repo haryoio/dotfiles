@@ -453,4 +453,9 @@ nnoremap <c-u> <c-w>x
 " Icon decorations example
 " ------------------------------------------------------------------------------
 
-" https://github.com/cirala/vifm_devicons
+source $HOME/.config/vifm/scripts/favicons.vifm
+source $HOME/.config/vifm/bind.vifm
+
+only
+set vicmd="neovim --servername VIM --remote-tab-silent"
+
