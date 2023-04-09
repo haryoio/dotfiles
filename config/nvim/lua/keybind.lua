@@ -1,4 +1,3 @@
-
 local opts = { noremap = true, silent = true }
 
 -- <Space>を<Leader>に設定
@@ -10,9 +9,13 @@ vim.g.maplocalleader = " "
 vim.keymap.set("i", "jj", "<ESC>", opts)
 
 vim.keymap.set("n", "<Leader>T", "<cmd>FloatermNew<CR>", opts)
-vim.keymap.set("n", "<Leader>F", "<cmd>FloatermNew vifm .<CR>")
-vim.keymap.set("n", "<Leader>e", "<cmd>Fern . -reveal=% -keep -drawer -toggle -width=30 -right<CR>", opts)
-vim.keymap.set("n", "<Leader>t", "<cmd>T<CR>", opts)
+vim.keymap.set("n", "<Leader>F", "<cmd>FloatermNew vifm .<CR>", opts)
+--vim.keymap.set("n", "<Leader>e", "<cmd>Fern . -reveal=% -keep -drawer -toggle -width=30 -right<CR>", opts)
+vim.keymap.set("n", "<Leader>e", "<cmd>TabVifm<CR>", opts) -- 新規タブで開く
+--vim.keymap.set("n", "<Leader>T", "<cmd>T<CR>", opts) -- Tabを下に開く
+vim.keymap.set("n", "[b", ":tabnext<CR>", opts)
+vim.keymap.set("n", "]b", ":tabprevious<CR>", opts)
+vim.keymap.set("n", "<Leader>tc", ":tabclose<CR>", opts)
 vim.keymap.set("n", "<Leader>f", function() vim.lsp.buf.format() end, opts)
 
 -- Move focus
@@ -25,7 +28,6 @@ vim.keymap.set("n", "vs", "<cmd>vnew .<CR>")
 vim.keymap.set("n", "vn", "<cmd>vnew <CR>")
 
 -- Split
--- 水平分割
 vim.keymap.set("n", "hs", "<cmd>split <CR>")
 vim.keymap.set("n", "hn", "<cmd>split . <CR>")
 
@@ -48,36 +50,40 @@ vim.keymap.set("n", "cm", "<CMD>CommentToggle<CR>")
 vim.keymap.set("v", "cm", "<CMD>'<,'>CommentToggle<CR>")
 
 local function on_cursor_hold()
-  if vim.lsp.buf.server_ready() then
-    vim.diagnostic.open_float()
-  end
+    if vim.lsp.buf.server_ready() then
+        vim.diagnostic.open_float()
+    end
 end
 
 local diagnostic_hover_augroup_name = "lspconfig-diagnostic"
 
 local function enable_diagnostics_hover()
-  vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
-  vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup_name, callback = on_cursor_hold })
+    vim.api.nvim_create_augroup(diagnostic_hover_augroup_name, { clear = true })
+    vim.api.nvim_create_autocmd({ "CursorHold" }, { group = diagnostic_hover_augroup_name, callback = on_cursor_hold })
 end
 
 local function disable_diagnostics_hover()
-  vim.api.nvim_clear_autocmds({ group = diagnostic_hover_augroup_name })
+    vim.api.nvim_clear_autocmds({ group = diagnostic_hover_augroup_name })
 end
 
 vim.api.nvim_set_option('updatetime', 500)
 enable_diagnostics_hover()
 
 local function on_hover()
-  disable_diagnostics_hover()
+    disable_diagnostics_hover()
 
-  vim.lsp.buf.hover()
+    vim.lsp.buf.hover()
 
-  vim.api.nvim_create_augroup("lspconfig-enable-diagnostics-hover", { clear = true })
-  -- ウィンドウの切り替えなどのイベントが絡んでくるとおかしくなるかもしれない
-  vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, { group = "lspconfig-enable-diagnostics-hover", callback = function()
-    vim.api.nvim_clear_autocmds({ group = "lspconfig-enable-diagnostics-hover" })
-    enable_diagnostics_hover()
-  end })
+    vim.api.nvim_create_augroup("lspconfig-enable-diagnostics-hover", { clear = true })
+    -- ウィンドウの切り替えなどのイベントが絡んでくるとおかしくなるかもしれない
+    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" },
+    {
+        group = "lspconfig-enable-diagnostics-hover",
+        callback = function()
+            vim.api.nvim_clear_autocmds({ group = "lspconfig-enable-diagnostics-hover" })
+            enable_diagnostics_hover()
+        end
+    })
 end
 
 vim.keymap.set('n', '<Leader>lk', on_hover, opts)
@@ -87,12 +93,12 @@ vim.keymap.set('n', '<Leader>lk', on_hover, opts)
 ----- LazyGit
 local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({
-  cmd = "lazygit",
-  direction = "float",
-  hidden = true,
+    cmd = "lazygit",
+    direction = "float",
+    hidden = true,
 })
 
 local function _lazygit_toggle()
-  lazygit:toggle()
+    lazygit:toggle()
 end
 vim.keymap.set("n", "lg", _lazygit_toggle, opts)

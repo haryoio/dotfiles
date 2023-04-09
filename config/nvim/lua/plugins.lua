@@ -21,9 +21,12 @@ packer.startup(function(use)
   use({ "wbthomason/packer.nvim" })
   use({ "lewis6991/impatient.nvim" }) -- Cache
   use({ "nathom/filetype.nvim" })
-  use({ 'echasnovski/mini.nvim', config = function ()
- require("config.miniconf")   
-  end})
+  use({
+    'echasnovski/mini.nvim',
+    config = function()
+      require("config.miniconf")
+    end
+  })
 
   -- Icons
   use({ "nvim-tree/nvim-web-devicons" })
@@ -47,7 +50,16 @@ packer.startup(function(use)
   use({ "petertriho/cmp-git" })
   use({ "Dosx001/cmp-commit" })
   use({ "hrsh7th/cmp-vsnip" })
-  
+
+  use({ "Shougo/ddc.vim" })
+  use({ "vim-denops/denops.vim" })
+  use({ "Shougo/pum.vim" })
+  use({ "Shougo/ddc-around" })
+  use({ "LumaKernel/ddc-file" })
+  use({ "Shougo/ddc-matcher_head" })
+  use({ "Shougo/ddc-sorter_rank" })
+  use({ "Shougo/ddc-converter_remove_overlap" })
+
 
   -- UI enhancements
   use({ "onsails/lspkind.nvim" }) -- Icons for completion list
@@ -60,7 +72,6 @@ packer.startup(function(use)
   use({ "Saecki/crates.nvim", ft = { "rust" } })
   use({ "David-Kunz/cmp-npm", ft = { "javascript", "typescript", "json" } })
   use({ "vuki656/package-info.nvim", ft = { "javascript", "json" } }) -- package.json
-  use({ "dhruvasagar/vim-table-mode", ft = { "markdown" } })
 
   -- Snippets
   use({ "rafamadriz/friendly-snippets" })
@@ -68,18 +79,9 @@ packer.startup(function(use)
   use({ "hrsh7th/vim-vsnip-integ" })
   use({ "avneesh0612/react-nextjs-snippets", ft = { "javascript" } })
 
- -- mini.vim
- --use({
- --   "terrortylor/nvim-comment",
- --   config = function() require("nvim_comment").setup({ comment_empty_trim_whitespace = false }) end,
- -- })
+  -- mini.vim
   use({ "airblade/vim-gitgutter" })
   use({ "t9md/vim-quickhl", event = "CursorHold" }) -- Highlight word under cursor
--- mini.nvim
-  --  use({ "windwp/nvim-autopairs", config = function() require("config.autopairs") end })
-  --use({ "numToStr/Comment.nvim", config = function() require("Comment").setup() end })
-
-
   use({ "gpanders/editorconfig.nvim" })
   use({ 'editorconfig/editorconfig-vim' })
   use({
@@ -89,26 +91,15 @@ packer.startup(function(use)
   })
   use({ "lukas-reineke/lsp-format.nvim" })
 
-  use({
-    "lewis6991/gitsigns.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-    config = function() require("gitsigns").setup() end,
-  })
-
+  use({ "lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup() end })
   -- Debugger
   use({ "mfussenegger/nvim-dap" })
 
   -- Filer
-  use({ "lambdalisue/fern.vim", config = function() require("config.fern") end })
-  use({ "lambdalisue/nerdfont.vim" }) -- Fern icons
-  use({ "lambdalisue/fern-git-status.vim" })
-  use({ "lambdalisue/fern-renderer-nerdfont.vim", requires = { "lambdalisue/fern.vim", "lambdalisue/nerdfont.vim" } })
-  use({ "lambdalisue/fern-hijack.vim", requires = { "lambdalisue/fern.vim" } })
   use({ "nvim-lua/popup.nvim" })
   use({ "nvim-lua/plenary.nvim" })
   use({ "kkharji/sqlite.lua" })
-  use({ 'istib/vifm.vim' })
-
+  use({'vifm/vifm.vim',})
   use({ 'voldikss/vim-floaterm' })
   use({
     "akinsho/toggleterm.nvim",
@@ -119,3 +110,6 @@ packer.startup(function(use)
   })
 end)
 
+
+local v = import("config.vifm_")
+if v == nil then return end
