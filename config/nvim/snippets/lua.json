@@ -1,9 +1,8 @@
 {
-	"snip1": {
-		"prefix": "lua",
-		"body": [
-			"lualualua"
-		]
-	}
+  "Print": {
+    "prefix": "pr",
+    "body": "print(${1:value})",
+    "description": "Print a value"
+  }
 }
 

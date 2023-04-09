@@ -9,6 +9,8 @@ vim.g.maplocalleader = " "
 
 vim.keymap.set("i", "jj", "<ESC>", opts)
 
+vim.keymap.set("n", "<Leader>T", "<cmd>FloatermNew<CR>", opts)
+vim.keymap.set("n", "<Leader>F", "<cmd>FloatermNew vifm .<CR>")
 vim.keymap.set("n", "<Leader>e", "<cmd>Fern . -reveal=% -keep -drawer -toggle -width=30 -right<CR>", opts)
 vim.keymap.set("n", "<Leader>t", "<cmd>T<CR>", opts)
 vim.keymap.set("n", "<Leader>f", function() vim.lsp.buf.format() end, opts)
