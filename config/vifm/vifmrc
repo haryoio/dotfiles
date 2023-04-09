@@ -455,7 +455,7 @@ nnoremap <c-u> <c-w>x
 
 source $HOME/.config/vifm/scripts/favicons.vifm
 source $HOME/.config/vifm/bind.vifm
-
+source $HOME/.config/vifm/colors/gruvbox.vifm
 only
 set vicmd="neovim --servername VIM --remote-tab-silent"
 
