@@ -21,18 +21,15 @@ packer.startup(function(use)
   use({ "wbthomason/packer.nvim" })
   use({ "lewis6991/impatient.nvim" }) -- Cache
   use({ "nathom/filetype.nvim" })
+  use({ 'echasnovski/mini.nvim', config = function ()
+ require("config.miniconf")   
+  end})
 
   -- Icons
   use({ "nvim-tree/nvim-web-devicons" })
 
   -- Color scheme
   use({ "ellisonleao/gruvbox.nvim" })
-
-  -- Splash Page
-  use({
-    "goolord/alpha-nvim",
-    requires = { "nvim-tree/nvim-web-devicons" },
-  })
 
   -- LSP and completion
   use({ "williamboman/mason.nvim", config = function() require("config.mason") end })
@@ -50,6 +47,7 @@ packer.startup(function(use)
   use({ "petertriho/cmp-git" })
   use({ "Dosx001/cmp-commit" })
   use({ "hrsh7th/cmp-vsnip" })
+  
 
   -- UI enhancements
   use({ "onsails/lspkind.nvim" }) -- Icons for completion list
@@ -70,23 +68,17 @@ packer.startup(function(use)
   use({ "hrsh7th/vim-vsnip-integ" })
   use({ "avneesh0612/react-nextjs-snippets", ft = { "javascript" } })
 
-
-  use({
-    "terrortylor/nvim-comment",
-    config = function() require("nvim_comment").setup({ comment_empty_trim_whitespace = false }) end,
-  })
+ -- mini.vim
+ --use({
+ --   "terrortylor/nvim-comment",
+ --   config = function() require("nvim_comment").setup({ comment_empty_trim_whitespace = false }) end,
+ -- })
   use({ "airblade/vim-gitgutter" })
   use({ "t9md/vim-quickhl", event = "CursorHold" }) -- Highlight word under cursor
-  use({ "windwp/nvim-autopairs", config = function() require("config.autopairs") end })
-  use({ "numToStr/Comment.nvim", config = function() require("Comment").setup() end })
+-- mini.nvim
+  --  use({ "windwp/nvim-autopairs", config = function() require("config.autopairs") end })
+  --use({ "numToStr/Comment.nvim", config = function() require("Comment").setup() end })
 
-  -- Lualine
-  use({
-    "nvim-lualine/lualine.nvim",
-    event = { "InsertEnter", "CursorHold", "FocusLost", "BufRead", "BufNewFile" },
-    requires = { "kyazdani42/nvim-web-devicons", module = { "nvim-web-devicons" } },
-    config = function() require("config.lualine") end,
-  })
 
   use({ "gpanders/editorconfig.nvim" })
   use({ 'editorconfig/editorconfig-vim' })
@@ -115,6 +107,7 @@ packer.startup(function(use)
   use({ "nvim-lua/popup.nvim" })
   use({ "nvim-lua/plenary.nvim" })
   use({ "kkharji/sqlite.lua" })
+  use({ 'istib/vifm.vim' })
 
   use({ 'voldikss/vim-floaterm' })
   use({
