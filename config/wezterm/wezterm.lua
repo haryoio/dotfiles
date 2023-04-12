@@ -29,10 +29,10 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		background = "#1d2021"
 		foreground = "#bdae93"
 	elseif hover then
-	    background = "#bdae93"
+		background = "#bdae93"
 		foreground = "#909090"
 	end
-    
+
 	local edge_foreground = background
 
 	-- ensure that the titles fit in the available space,
@@ -76,9 +76,6 @@ local kerning_options = {
 	"cv24", -- !=
 }
 
-
-
-
 return {
 	use_ime = true,
 	font_size = 12.0,
@@ -91,17 +88,14 @@ return {
 	--color_scheme = "Gruvbox Dark",
 	color_scheme = "Gruvbox dark, medium (base16)",
 	window_background_opacity = 0.6,
-    text_background_opacity = 0.7,
-
+	text_background_opacity = 0.7,
+	hide_tab_bar_if_only_one_tab = true,
 	-- Enable the scrollbar
 	enable_scroll_bar = true,
 	use_fancy_tab_bar = true,
-
 	status_update_interval = 1000,
-
 	window_decorations = "RESIZE",
 	keys = keys,
 	leader = leader,
-
 	automatically_reload_config = true,
 }
