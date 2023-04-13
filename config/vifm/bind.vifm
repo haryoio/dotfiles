@@ -6,3 +6,4 @@ nnoremap X :!open %f<cr>
 
 " 反対側のペインをカレントペインと動悸する"
 nnoremap , :sync!<cr>
+

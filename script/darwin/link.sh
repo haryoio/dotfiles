@@ -8,7 +8,7 @@ ln -sf $CONFDIR/zsh/.zshrc $HOME
 #sheldon
 ln -sf $CONFDIR/sheldon $HOME/.config
 #gitconfig
-ln -sf $CONFDIR/git $HOME
+ln -sf $CONFDIR/git/.gitconfig $HOME
 #nvim
 ln -sf $CONFDIR/nvim $HOME/.config
 #wezterm
