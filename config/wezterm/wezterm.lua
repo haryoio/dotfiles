@@ -7,7 +7,6 @@ end
 ------------------------------------------------
 -- KEY BINDINGS
 ------------------------------------------------
-local leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 local keys = require("keybind")
 require("status")
 
@@ -96,6 +95,6 @@ return {
 	status_update_interval = 1000,
 	window_decorations = "RESIZE",
 	keys = keys,
-	leader = leader,
+	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 },
 	automatically_reload_config = true,
 }
