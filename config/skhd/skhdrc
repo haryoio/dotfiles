@@ -54,13 +54,12 @@ alt - a : yabai -m space --toggle padding && yabai -m space --toggle gap
 # toggle window fullscreen zoom
 alt - f : yabai -m window --toggle zoom-fullscreen
 
-# toggle window native fullscreen
+oggle window native fullscreen
 shift + alt - f : yabai -m window --toggle native-fullscreen
 
 # toggle window split type
 alt - e : yabai -m window --toggle split
 
 # float / unfloat window and restore position
-# alt - t : yabai -m window --toggle float && /tmp/yabai-restore/$(yabai -m query --windows --window | jq -re '.id').restore 2>/dev/null || true
-alt - t : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
+alt - t : yabai -m window --toggle float && /tmp/yabai-restore/$(yabai -m query --windows --window | jq -re '.id').restore 2>/dev/null || true
 
