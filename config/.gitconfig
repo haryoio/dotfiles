@@ -24,8 +24,11 @@
 
 [core]
 	autocrlf = input
+	editor = nvim
+
 [ghq]
 	root = ~/workspace
+
 [commit]
 	template = ~/.gitmessage.txt
 
