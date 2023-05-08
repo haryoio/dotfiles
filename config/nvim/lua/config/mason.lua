@@ -1,7 +1,7 @@
 local on_attach = function(client, bufnr)
 	--client.server_capabilities.semanticTokensProvider = nil
 
-	if client.supports_method("textDocument/formatting") then
+	if client.server_capabilities.documentFormattingProvider then
 		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			callback = function()
