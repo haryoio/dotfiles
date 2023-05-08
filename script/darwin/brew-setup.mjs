@@ -10,6 +10,7 @@ const formulas = [
   "peco",
   "ripgrep",
   "tldr",
+  "delta",
   "tig",
   "lazygit",
   "wezterm",
@@ -35,6 +36,7 @@ const dotfilesDir = path.join(
   "dotfiles",
   "config"
 );
+
 const dotconfigDir = path.join(process.env.HOME, ".config");
 
 await $`brew tap homebrew/cask-fonts`;
