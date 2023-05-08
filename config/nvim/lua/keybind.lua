@@ -11,8 +11,6 @@ vim.g.mapleader = " "
 
 imap("jj", "<ESC>", opts)
 
---vim.keymap.set("n", "<Leader>F", "<cmd>FloatermNew vifm .<CR>", opts)
-vim.keymap.set("n", "<Leader>F", "<cmd>TabVifm<CR>", opts) -- 新規タブで開く
 -- ターミナルを開く
 nmap("<Leader>t", "<cmd>FloatermNew<CR>", opts)
 nmap("[b", ":tabnext<CR>", opts)
