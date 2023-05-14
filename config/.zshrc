@@ -47,9 +47,13 @@ eval "$(sheldon source)"
 export PATH=$PATH:"/Applications/IntelliJ IDEA CE.app/Contents/MacOS"
 export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
 
+export PATH="$HOME/.cargo/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# serverpod
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
 
 # プライベートなスクリプト
 private_file="$HOME/.priv.zsh"

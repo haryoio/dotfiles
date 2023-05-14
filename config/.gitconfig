@@ -18,18 +18,23 @@
   fp = fetch -p # fetch and prune
   sync = !git pull && git push # 現在のブランチをぷるした後変更をプッシュする
 
-
 [pull]
   ff = only
 
 [core]
 	autocrlf = input
 	editor = nvim
+	#pager = delta
+	#diff = delta
+	#reflog = delta
+
 [delta]
     plus-style = "syntax #012800"
     minus-style = "syntax #340001"
     syntax-theme = Monokai Extended
     navigate = true
+	#features = side-by-side line-numbers decorations
+
 [interactive]
 	diffFilter = delta --color-only
 

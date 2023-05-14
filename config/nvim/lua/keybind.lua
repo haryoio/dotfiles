@@ -12,7 +12,13 @@ vim.g.mapleader = " "
 imap("jj", "<ESC>", opts)
 
 -- ターミナルを開く
-nmap("<Leader>t", "<cmd>FloatermNew<CR>", opts)
+nmap("<Leader>t", "<CMD>FloatermNew<CR>", opts)
+-- ターミナルを強制終了
+tmap("<Leader>t", "exit<CR>", opts)
+
+-- ファイルを開く
+nmap("<Leader>e", ":Neotree filesystem reveal right toggle<cr>", opts)
+-- tigを開く
 nmap("[b", ":tabnext<CR>", opts)
 nmap("]b", ":tabprevious<CR>", opts)
 nmap("<Leader>tc", ":tabclose<CR>", opts)
@@ -118,7 +124,6 @@ local function on_hover()
 	vim.lsp.buf.hover()
 
 	vim.api.nvim_create_augroup("lspconfig-enable-diagnostics-hover", { clear = true })
-	-- ウィンドウの切り替えなどのイベントが絡んでくるとおかしくなるかもしれない
 	vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
 		group = "lspconfig-enable-diagnostics-hover",
 		callback = function()
