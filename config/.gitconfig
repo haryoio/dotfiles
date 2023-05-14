@@ -25,6 +25,13 @@
 [core]
 	autocrlf = input
 	editor = nvim
+[delta]
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+[interactive]
+	diffFilter = delta --color-only
 
 [ghq]
 	root = ~/workspace
@@ -35,3 +42,5 @@
 # ユーザ情報などはローカルで管理
 [include]
 	path = ~/.user.gitconfig
+[diff]
+	tool = vimdiff
