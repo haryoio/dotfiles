@@ -19,6 +19,8 @@ tmap("<Leader>t", "exit<CR>", opts)
 -- ファイルを開く
 nmap("<Leader>e", ":Neotree filesystem reveal right toggle<cr>", opts)
 -- tigを開く
+nmap("<Leader>g", ":FloatermNew --title=tig --autoclose=2 --height=0.3 --wintype=split --position=right tig<cr>", opts)
+
 nmap("[b", ":tabnext<CR>", opts)
 nmap("]b", ":tabprevious<CR>", opts)
 nmap("<Leader>tc", ":tabclose<CR>", opts)
