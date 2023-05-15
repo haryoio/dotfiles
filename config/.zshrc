@@ -12,7 +12,7 @@ SAVEHIST=1000000
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' ignore-parents parent pwd .. # ../ の後は今いるディレクトリを補完しない
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin # sudo の後ろでコマンド名を補完する
+    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin # sudo の後ろでコマンド名を補完する
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args' # ps コマンドのプロセス名補完
 setopt print_eight_bit  # 日本語ファイル名を表示可能にする
 setopt no_beep # beep を無効にする
@@ -37,9 +37,27 @@ alias la="ls -a"
 alias l="ls -CF"
 
 alias rm="trash"
+export DOTDIR="$HOME/.local/share/dotfiles"
 
 eval "$(starship init zsh)"
 eval "$(sheldon source)"
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 . ~/.asdf/plugins/java/set-java-home.zsh
 
+export PATH=$PATH:"/Applications/IntelliJ IDEA CE.app/Contents/MacOS"
+export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="$HOME/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# serverpod
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+
+# プライベートなスクリプト
+private_file="$HOME/.priv.zsh"
+
+if [[ -f "$private_file" ]]; then
+    source "$private_file"
+fi

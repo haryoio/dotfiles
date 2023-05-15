@@ -16,9 +16,9 @@ local natives = {
 	"logiPat",
 	"rrhelper",
 
-	"netrwPlugin",
-	"netrwSettings",
-	"netrwFileHandlers",
+	--"netrwPlugin",
+	--"netrwSettings",
+	--"netrwFileHandlers",
 }
 
 for plugin, value in pairs(natives) do

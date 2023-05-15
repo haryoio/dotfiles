@@ -6,53 +6,62 @@ end
 local action = wezterm.action
 
 local KEYBINDS = {
-	{ -- horizontal split
+	{
+		-- horizontal split
 		key = '"',
 		mods = "LEADER",
 		action = action.SplitHorizontal({
 			domain = "CurrentPaneDomain",
 		}),
 	},
-	{ -- vertical split
+	{
+		-- vertical split
 		key = "%",
 		mods = "LEADER",
 		action = action.SplitVertical({
 			domain = "CurrentPaneDomain",
 		}),
 	},
-	{ -- select pane 1 to 9
+	{
+		-- select pane 1 to 9
 		key = "p",
 		mods = "LEADER",
 		action = action.PaneSelect({
 			alphabet = "1234567890",
 		}),
 	},
-	{ -- close pane
+	{
+		-- close pane
 		key = "w",
 		mods = "LEADER",
 		action = action.CloseCurrentPane({ confirm = true }),
 	},
-	{ -- new tab
+	{
+		-- new tab
 		key = "t",
 		mods = "LEADER",
 		action = action.SpawnTab("CurrentPaneDomain"),
 	},
-	{ -- next tab
+	{
+		-- next tab
 		key = "n",
 		mods = "LEADER",
 		action = action.ActivateTabRelative(1),
 	},
-	{ -- previous tab
+	{
+		-- previous tab
 		key = "b",
 		mods = "LEADER",
 		action = action.ActivateTabRelative(-1),
 	},
-	{ -- close current tab
+	{
+		-- close current tab
 		key = "q",
 		mods = "LEADER",
 		action = action.CloseCurrentTab({ confirm = true }),
 	},
-	{ -- toggle fullscreen
+	{
+		-- toggle fullscreen
 		key = "f",
 		mods = "LEADER",
 		action = action.ToggleFullScreen,

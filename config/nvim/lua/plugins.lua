@@ -127,6 +127,14 @@ packer.startup(function(use)
 	use({ "nvim-lua/plenary.nvim" })
 	use({ "kkharji/sqlite.lua" })
 	use({ "vifm/vifm.vim" })
+	use({ "MunifTanjim/nui.nvim" })
+	use({
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		cmd = "Neotree",
+		config = require("config.neotree").config,
+	})
+
 	use({ "voldikss/vim-floaterm" })
 	use({
 		"akinsho/toggleterm.nvim",

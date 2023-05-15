@@ -7,8 +7,12 @@ case "$platform" in
     #"linux")
     #    ;;
     "darwin")
-      echo "darwin"
-        ;;
+    	git clone https://github.com/haryoio/dotfiles.git
+		ln -s "$(pwd)/dotfiles" "$HOME/.local/share/dotfiles"
+		cd ./dotfiles/script/darwin
+		chmod +x ./install.sh
+		./install.sh
+	;;
     #"windows")
     #    ;;
     *)

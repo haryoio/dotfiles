@@ -1,12 +1,12 @@
 [alias]
-  # git logを見やすくフォーマット
   ll = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
   st = status
 
-  cm = commit 
+  cm = commit
   cma = commit -a # ステージングされたものをすべてコミット
   cmam = commit -a -m # cmaの他コミットメッセージを指定
 
+  gp = pull origin HEAD -u
 
   co = checkout # shortcut for checkout
   nb = checkout -b # create new branch and checkout
@@ -22,5 +22,30 @@
   ff = only
 
 [core]
-  editor = neovim
+	autocrlf = input
+	editor = nvim
+	#pager = delta
+	#diff = delta
+	#reflog = delta
 
+[delta]
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+	#features = side-by-side line-numbers decorations
+
+[interactive]
+	diffFilter = delta --color-only
+
+[ghq]
+	root = ~/workspace
+
+[commit]
+	template = ~/.gitmessage.txt
+
+# ユーザ情報などはローカルで管理
+[include]
+	path = ~/.user.gitconfig
+[diff]
+	tool = vimdiff
