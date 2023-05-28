@@ -1,8 +1,5 @@
 #!/bin/bash
 
-cd ./script/darwin
-
-
 echo "-----------install brew---------------"
 which brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 which brew >/dev/null 2>&1 && brew doctor
