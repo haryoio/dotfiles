@@ -138,12 +138,12 @@ end
 nmap("<Leader>lk", on_hover, opts)
 
 ----- LazyGit
-local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({
-	cmd = "lazygit",
-	direction = "float",
-	hidden = true,
-})
+--local Terminal = require("toggleterm.terminal").Terminal
+--local lazygit = Terminal:new({
+--	cmd = "lazygit",
+--	direction = "float",
+--	hidden = true,
+--})
 
 local function _lazygit_toggle()
 	lazygit:toggle()

@@ -132,7 +132,7 @@ packer.startup(function(use)
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
 		cmd = "Neotree",
-		config = require("config.neotree").config,
+		--config = require("config.neotree").config,
 	})
 
 	use({ "voldikss/vim-floaterm" })
