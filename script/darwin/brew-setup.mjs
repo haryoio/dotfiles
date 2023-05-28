@@ -55,27 +55,4 @@ function installBrewPackages() {
   }
 }
 
-function isDirectory(path) {
-  try {
-    return statSync(path).isDirectory();
-  } catch (error) {
-    return false;
-  }
-}
-
-function linkingConfigFiles() {
-  const configFiles = readdirSync(dotfilesDir);
-  for (const pkg of configFiles) {
-    const path = `${dotfilesDir}/${pkg}`;
-    if (isDirectory(path)) {
-      console.log(`${path} -> ${dotconfigDir}`);
-      execSync(`ln -sf ${path} ${dotconfigDir}`);
-    } else {
-      console.log(`${path} -> $HOME`);
-      execSync(`ln -sf ${path} $HOME`);
-    }
-  }
-}
-
 installBrewPackages();
-linkingConfigFiles();
