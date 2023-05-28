@@ -4,6 +4,7 @@ const { readdirSync, statSync } = require("fs");
 const path = require("path");
 
 const formulas = [
+  "trash",
   "bat",
   "exa",
   "starship",
