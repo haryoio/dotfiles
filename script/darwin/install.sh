@@ -25,4 +25,4 @@ echo "-----------install brew packages---------------"
 zx ./brew-setup.mjs
 
 echo "-----------install some config---------------"
-zx ./config-setup.mjs
+zx ./symlink-configfiles.mjs
