@@ -1,3 +1,4 @@
+#!/bin/bash
 
 function configure_dot_asdf {
     ASDF_PATH="$HOME/.asdfrc"
@@ -50,6 +51,11 @@ asdf global java corretto-11.0.17.8.1
 asdf plugin add sbt
 asdf install sbt 1.8.2
 asdf global sbt 1.8.2
+
+# kotlin
+asdf plugin add kotlin
+asdf install kotlin latest
+asdf global kotlin latest
 
 # python
 asdf plugin add python
