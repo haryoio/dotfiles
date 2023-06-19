@@ -39,6 +39,9 @@ asdf plugin add nodejs
 asdf install nodejs latest
 asdf global nodejs latest
 
+echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+source ~/.zshrc
+
 corepack enable
 asdf reshim nodejs
 
