@@ -1,7 +1,13 @@
 #!/bin/bash
 
+mkdir $HOME/.local
+mkdir $HOME/.local/share
+sudo ln -sfnv ~/dotfiles $HOME/.local/share
+
 echo "-----------install brew---------------"
-which brew >/dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+which brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 which brew >/dev/null 2>&1 && brew doctor
 which brew >/dev/null 2>&1 && brew update
 
