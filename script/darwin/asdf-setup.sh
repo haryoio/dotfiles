@@ -1,67 +1,66 @@
 #!/bin/bash
 
-function configure_dot_asdf {
-    ASDF_PATH="$HOME/.asdfrc"
+ASDF_PATH="$HOME/.asdfrc"
+ZSHRC_PATH="${ZDOTDIR:-~}/.zshrc"
 
-    # Check if the .asdf directory exists
-    if [ ! -d "$ASDF_PATH" ]; then
-        echo "Creating the $ASDF_DIR directory"
+# .asdfrc ファイルをセットアップする関数
+configure_dot_asdf() {
+    # .asdfrc ファイルが存在するか確認
+    if [ ! -f "$ASDF_PATH" ]; then
+        echo "$ASDF_PATH ファイルを作成します"
         touch $ASDF_PATH
     fi
 
-    if ! grep -qxF 'java_macos_integration_enable = yes' ~/.asdfrc ; then
-        echo 'java_macos_integration_enable = yes' >> ~/.asdfrc
+    # java_macos_integration_enable が設定されているか確認
+    if ! grep -qxF 'java_macos_integration_enable = yes' $ASDF_PATH ; then
+        echo 'java_macos_integration_enable = yes' >> $ASDF_PATH
     fi
 }
 
+# asdfのプラグインをインストールするユーティリティ関数
+install_asdf_plugin() {
+    local plugin_name=$1
+    local plugin_url=$2
+    local version=$3
+
+    asdf plugin add $plugin_name $plugin_url
+    asdf install $plugin_name $version
+    asdf global $plugin_name $version
+}
+
+# .asdfrc を設定する
+configure_dot_asdf
+
 # awscli
-asdf plugin add awscli
-asdf install awscli laest:2
-asdf global awscli latest
+install_asdf_plugin "awscli" "" "latest:2"
 
 # deno
-asdf plugin add deno https://github.com/asdf-community/asdf-deno.git
-asdf install deno latest
-asdf global deno latest
+install_asdf_plugin "deno" "https://github.com/asdf-community/asdf-deno.git" "latest"
 
 # jq
-asdf plugin add jq https://github.com/AZMCode/asdf-jq.git
-asdf install jq latest
-asdf global jq latest
+install_asdf_plugin "jq" "https://github.com/AZMCode/asdf-jq.git" "latest"
 
 # flutter
-asdf plugin add flutter
-asdf install flutter latest
-asdf global flutter latest
+install_asdf_plugin "flutter" "" "latest"
 
 # nodejs
-asdf plugin add nodejs
-asdf install nodejs latest
-asdf global nodejs latest
+install_asdf_plugin "nodejs" "" "latest"
 
-echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
-source ~/.zshrc
+# asdf のパスを .zshrc に追加
+echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> $ZSHRC_PATH
+source $ZSHRC_PATH
 
 corepack enable
 asdf reshim nodejs
 
 # java
-asdf plugin add java https://github.com/halcyon/asdf-java.git
-asdf install java corretto-11.0.17.8.1
-asdf global java corretto-11.0.17.8.1
+install_asdf_plugin "java" "https://github.com/halcyon/asdf-java.git" "corretto-11.0.17.8.1"
 
 # sbt
-asdf plugin add sbt
-asdf install sbt 1.8.2
-asdf global sbt 1.8.2
+install_asdf_plugin "sbt" "" "1.8.2"
 
 # kotlin
-asdf plugin add kotlin
-asdf install kotlin latest
-asdf global kotlin latest
+install_asdf_plugin "kotlin" "" "latest"
 
 # python
-asdf plugin add python
-asdf install python 3.9.1
-asdf global python 3.9.1
-
+install_asdf_plugin "python" "" "3.9.1"
