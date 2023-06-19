@@ -11,7 +11,6 @@ const formulas = [
   "peco",
   "ripgrep",
   "tldr",
-  "delta",
   "tig",
   "lazygit",
   "wezterm",
