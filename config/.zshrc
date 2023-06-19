@@ -55,6 +55,9 @@ export PATH="$HOME/.rd/bin:$PATH"
 # serverpod
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
+
 
 # プライベートなスクリプト
 private_file="$HOME/.priv.zsh"
