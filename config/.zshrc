@@ -45,6 +45,7 @@ eval "$(sheldon source)"
 . ~/.asdf/plugins/java/set-java-home.zsh
 
 export PATH=$PATH:"/Applications/IntelliJ IDEA CE.app/Contents/MacOS"
+export PATH=$PATH:"/Applications/IntelliJ IDEA.app/Contents/MacOS"
 export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
 
 export PATH="$HOME/.cargo/bin:$PATH"
