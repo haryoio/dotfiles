@@ -38,7 +38,6 @@ function linkingConfigFiles() {
       }
     } catch (e) {
       console.error(e);
-      continue;
     }
   }
 }
