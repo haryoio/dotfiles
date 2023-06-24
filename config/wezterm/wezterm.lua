@@ -86,7 +86,7 @@ return {
 	harfbuzz_features = kerning_options,
 	--color_scheme = "Gruvbox Dark",
 	color_scheme = "Gruvbox dark, medium (base16)",
-	window_background_opacity = 0.6,
+	window_background_opacity = 0.90,
 	text_background_opacity = 0.7,
 	hide_tab_bar_if_only_one_tab = true,
 	-- Enable the scrollbar
