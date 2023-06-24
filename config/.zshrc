@@ -32,6 +32,7 @@ alias vim=nvim
 alias vi=nvim
 alias rust=evcxr
 alias tf='terraform'
+alias tfmt='terraform fmt -recursive'
 
 alias ll="ls -alF"
 alias la="ls -a"
