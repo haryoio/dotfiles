@@ -64,3 +64,6 @@ install_asdf_plugin "kotlin" "" "latest"
 
 # python
 install_asdf_plugin "python" "" "3.9.1"
+
+# terraform
+install_asdf_plugin "terraform" "" "latest"
