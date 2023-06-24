@@ -67,3 +67,6 @@ install_asdf_plugin "python" "" "3.9.1"
 
 # terraform
 install_asdf_plugin "terraform" "" "latest"
+
+# packer
+install_asdf_plugin "packer" "" "latest"
