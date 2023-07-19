@@ -27,6 +27,7 @@ const formulas = [
   "asdf",
   "mas",
   "font-sauce-code-pro-nerd-font",
+  "font-awesome-terminal-fonts",
 ];
 
 await $`brew tap homebrew/cask-fonts`;
