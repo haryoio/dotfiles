@@ -27,8 +27,8 @@ for plugin, value in pairs(natives) do
 end
 vim.g["loaded_netrw"] = "break"
 
-require("plugins")
+--require("plugins")
 require("base")
 require("options")
-require("theme")
+--require("theme")
 require("keybind")

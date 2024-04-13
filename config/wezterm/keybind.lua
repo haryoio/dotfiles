@@ -8,7 +8,7 @@ local action = wezterm.action
 local KEYBINDS = {
 	{
 		-- horizontal split
-		key = '"',
+		key = 'h',
 		mods = "LEADER",
 		action = action.SplitHorizontal({
 			domain = "CurrentPaneDomain",
@@ -16,7 +16,7 @@ local KEYBINDS = {
 	},
 	{
 		-- vertical split
-		key = "%",
+		key = "v",
 		mods = "LEADER",
 		action = action.SplitVertical({
 			domain = "CurrentPaneDomain",
@@ -30,11 +30,31 @@ local KEYBINDS = {
 			alphabet = "1234567890",
 		}),
 	},
+  {
+    key = 'LeftArrow',
+    mods = 'CTRL|SHIFT',
+    action = action.ActivatePaneDirection 'Left',
+  },
+  {
+    key = 'RightArrow',
+    mods = 'CTRL|SHIFT',
+    action = action.ActivatePaneDirection 'Right',
+  },
+  {
+    key = 'UpArrow',
+    mods = 'CTRL|SHIFT',
+    action = action.ActivatePaneDirection 'Up',
+  },
+  {
+    key = 'DownArrow',
+    mods = 'CTRL|SHIFT',
+    action = action.ActivatePaneDirection 'Down',
+  },
 	{
 		-- close pane
 		key = "w",
 		mods = "LEADER",
-		action = action.CloseCurrentPane({ confirm = true }),
+		action = action.CloseCurrentPane(),
 	},
 	{
 		-- new tab
@@ -67,18 +87,18 @@ local KEYBINDS = {
 		action = action.ToggleFullScreen,
 	},
 	{
-		key = "h",
+		key = "l",
 		mods = "LEADER",
 		action = action.AdjustPaneSize({ "Left", 5 }),
 	},
 	{
-		key = "j",
+		key = "d",
 		mods = "LEADER",
 		action = action.AdjustPaneSize({ "Down", 5 }),
 	},
-	{ key = "k", mods = "LEADER", action = action.AdjustPaneSize({ "Up", 5 }) },
+	{ key = "u", mods = "LEADER", action = action.AdjustPaneSize({ "Up", 5 }) },
 	{
-		key = "l",
+		key = "r",
 		mods = "LEADER",
 		action = action.AdjustPaneSize({ "Right", 5 }),
 	},

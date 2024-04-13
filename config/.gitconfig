@@ -36,3 +36,7 @@
 	path = ~/.user.gitconfig
 [diff]
 	tool = vimdiff
+[push]
+	autoSetupRemote = true
+[http]
+	sslVerify = false

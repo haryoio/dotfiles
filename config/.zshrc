@@ -43,23 +43,12 @@ export DOTDIR="$HOME/.local/share/dotfiles"
 
 eval "$(starship init zsh)"
 eval "$(sheldon source)"
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-. ~/.asdf/plugins/java/set-java-home.zsh
 
 export PATH=$PATH:"/Applications/IntelliJ IDEA CE.app/Contents/MacOS"
 export PATH=$PATH:"/Applications/IntelliJ IDEA.app/Contents/MacOS"
 export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
 
-export PATH="$HOME/.cargo/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="$HOME/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-# serverpod
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
-
-
 
 # プライベートなスクリプト
 private_file="$HOME/.priv.zsh"
@@ -67,3 +56,9 @@ private_file="$HOME/.priv.zsh"
 if [[ -f "$private_file" ]]; then
     source "$private_file"
 fi
+
+export PATH="$PATH:$HOME/Library/Android/sdk/tools"
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+export OPENAI_API_KEY=
+eval "$(/opt/homebrew/bin/mise activate zsh)"
+
